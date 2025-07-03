@@ -43,13 +43,14 @@ Follow the steps **in the given order**:
      export OPENAI_API_KEY="sk‑..."
      ```  
    - **Edit `system.json`** (project root) – manually specify `api_key`, `base_url`, and `model` if you prefer a file‑based approach.
-2. **You should first download the base model**  
-   [`Qwen2-VL-2B-Instruct`]<https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct/tree/main> 
-   and place its full folder in:  
-   `lmm_utils/Qwen/Qwen2-VL-2B-Instruct/`
+2. **Download the required models**:  
+   - First, download the base model [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct/tree/main).  
+     Place the entire folder at:  
+     `lmm_utils/Qwen/Qwen2-VL-2B-Instruct/`
 
-   Then make sure that [`model.pth`]<lmm_utils/Qwen/qwen2vl_lora_mlp/model.pth> is placed in the `lmm_utils/Qwen/qwen2vl_lora_mlp/` directory.  
-   This file contains the LoRA+MLP fine-tuned weights.
+   - Next, download the fine-tuned weights file [model.pth](lmm_utils/Qwen/qwen2vl_lora_mlp/model.pth),  
+     and place it in:  
+     `lmm_utils/Qwen/qwen2vl_lora_mlp/`
 ---
 
 ## Quick GUI Demo
@@ -106,7 +107,7 @@ Once a pattern is generated in GUI, you can refine them directly inside the GUI:
 ### 1. Generate from a pattern.json
 After generating the pattern data, you can simulate the corresponding 3D output directly from the pattern's JSON file.
 ```bash
-python lmm_utils/test_garment_sim.py --pattern_spec $OUTPUT_JSON 
+python test_garment_sim.py --pattern_spec $INPUT_JSON 
 ```
 ### 2. Generate from gui
 You can also run the simulation directly on the GUI to obtain 3D data.
