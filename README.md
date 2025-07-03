@@ -1,92 +1,127 @@
-# design2garmentcode
 
+# Design2GarmentCode: Programmatic Garment Patterns from Text and Images
 
+[arXiv](https://arxiv.org/abs/2412.08603) | [Project Page](https://style3d.github.io/design2garmentcode/)
 
-## Getting started
+Feng Zhou, Ruiyang Liu, Chen Liu, Gaofeng He, Yong‑Lu Li, Xiaogang Jin, Huamin Wang. *CVPR 2025 .*
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin http://gitlab.linctex.com/ZhouDeal/design2garmentcode.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](http://gitlab.linctex.com/ZhouDeal/design2garmentcode/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+![teaser](assets/img/neural_symbolic-teaser.png)
+ we propose a novel
+sewing pattern generation approach Design2GarmentCode
+based on Large Multimodal Models (LMMs), to generate parametric pattern-making programs from multi-modal
+design concepts
+---
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-org/design2garmentcode.git   # ← replace with the real URL
+cd design2garmentcode
+```
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+### 2. Create the Conda environment
+An `environment.yml` file is provided in the project root with all required Conda and PyPI dependencies (Python 3.9.19, Torch 2.4.0 + CUDA 12.1, etc.).
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+```bash
+conda env create -f environment.yml
+conda activate d2g
+python -m pip install --upgrade pip          # optional: upgrade pip
+```
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+### 3. (Optional) Enable 3‑D simulation
+If you need local cloth simulation and 3‑D visualization, follow the installation instructions for **GarmentCode Warp Simulator**:  
+<https://github.com/maria-korosteleva/NvidiaWarp-GarmentCode>
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+---
+### 4. Language‑Model API
+`Design2GarmentCode` communicates with large multimodal models.  
+Follow the steps **in the given order**:
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+1. **Provide API credentials**  
+   - **Environment variable (recommended)** – defaults to *ChatGPT‑4o*  
+     ```bash
+     export OPENAI_API_KEY="sk‑..."
+     ```  
+   - **Edit `system.json`** (project root) – manually specify `api_key`, `base_url`, and `model` if you prefer a file‑based approach.
+2. **You should first download the base model**  
+   [`Qwen2-VL-2B-Instruct`]<https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct/tree/main> 
+   and place its full folder in:  
+   `lmm_utils/Qwen/Qwen2-VL-2B-Instruct/`
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+   Then make sure that [`model.pth`]<lmm_utils/Qwen/qwen2vl_lora_mlp/model.pth> is placed in the `lmm_utils/Qwen/qwen2vl_lora_mlp/` directory.  
+   This file contains the LoRA+MLP fine-tuned weights.
+---
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+## Quick GUI Demo
 
-## License
-For open source projects, say how it is licensed.
+```bash
+python gui.py         
+```
+- Input: free‑form prompt or an image/sketch  
+- Output: GarmentCode JSON, preview image, and (optionally) physics simulation
+---
+## Model Inference
+### 1. Text Guided Generation
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Use `test_text_batch.py` to process a list of text descriptions from a JSON file.
+
+```bash
+python lmm_utils/test_text_batch.py \
+  --input assets/test_text/examples.json \
+  --output assets/test_text_result \
+  --sim 
+```
+
+- `--input`: Path to your input JSON file containing multiple garment description texts.
+- `--output`: Directory where the output `.json` files will be saved.
+- `--sim`: Enable or disable physical simulation output.
+Supports physical simulation (enabled by default in script).
+
+---
+
+### 2. Image Guided Generation
+
+Use `test_picture_batch.py` to process all image files in a directory.
+
+```bash
+python lmm_utils/test_picture_batch.py \
+  --input assets/test_img/examples \
+  --output assets/test_image_result/examples \
+  --sim 
+```
+- `--input`: Folder containing multiple image files.
+- `--output`: Output folder where results will be saved.
+- `--sim`: Enable or disable physical simulation output.
+
+---
+### 3. Modify Patterns in the GUI
+Once a pattern is generated in GUI, you can refine them directly inside the GUI:
+
+1. Focus the **input box** at the bottom.  
+2. Type `modify: <your-instruction>` .  
+3. Press **Enter** – the system will regenerate the pattern to reflect your changes.
+
+
+## Get 3D Garment Patterns
+### 1. Generate from a pattern.json
+After generating the pattern data, you can simulate the corresponding 3D output directly from the pattern's JSON file.
+```bash
+python lmm_utils/test_garment_sim.py --pattern_spec $OUTPUT_JSON 
+```
+### 2. Generate from gui
+You can also run the simulation directly on the GUI to obtain 3D data.
+```bash
+python gui.py 
+```
+### Citation
+```bash
+If you find this work useful, please cite:
+
+```bibtex
+@article{zhou2024design2garmentcode,
+  title={Design2GarmentCode: Turning Design Concepts to Tangible Garments Through Program Synthesis},
+  author={Zhou, Feng and Liu, Ruiyang and Liu, Chen and He, Gaofeng and Li, Yong-Lu and Jin, Xiaogang and Wang, Huamin},
+  journal={arXiv preprint arXiv:2412.08603},
+  year={2024}
+}
+```

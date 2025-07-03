@@ -1,0 +1,16 @@
+{
+  "output": "./Logs/",
+  "datasets_path": "",
+  "datasets_sim": "",
+  "sim_configs_path": "./assets/Sim_props",
+  "bodies_default_path": "./assets/bodies",
+  "body_samples_path": "",
+  "model": {
+    "vl_model": "",
+    "text_model": ""
+  },
+  "api_keys": ""
+  ,
+  "base_urls": "",
+  "param_model": "lmm_utils/Qwen/qwen2vl_lora_mlp/model.pth"
+}

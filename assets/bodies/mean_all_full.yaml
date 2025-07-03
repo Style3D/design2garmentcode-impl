@@ -1,0 +1,35 @@
+#python/object:assets.bodies.body_params.BodyParameters
+body:
+  _armscye_depth: 15.4
+  _base_sleeve_balance: 34.5
+  _bust_line: 22.7
+  _hip_inclination: 4.93
+  _leg_length: 85.3
+  _shoulder_incl: 21.7
+  _waist_level: 108.0
+  arm_length: 53.0
+  arm_pose_angle: 45.5
+  armscye_depth: 12.9
+  back_width: 47.7
+  bum_points: 18.2
+  bust: 99.8
+  bust_line: 25.7
+  bust_points: 16.9
+  crotch_hip_diff: 8.81
+  head_l: 26.3
+  height: 171.0
+  hip_back_width: 54.8
+  hip_inclination: 9.86
+  hips: 103.0
+  hips_line: 23.5
+  leg_circ: 60.2
+  neck_w: 18.9
+  shoulder_incl: 21.7
+  shoulder_w: 36.5
+  underbust: 86.2
+  vert_bust_line: 21.1
+  waist: 84.3
+  waist_back_width: 39.1
+  waist_line: 36.9
+  waist_over_bust_line: 40.6
+  wrist: 16.6
