@@ -22,8 +22,8 @@ Official implementation for Design2GarmentCode, a motility-agnostic sewing patte
 ## Installation
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-org/design2garmentcode.git   # ← replace with the real URL
-cd design2garmentcode
+git clone https://github.com/Style3D/design2garmentcode-impl.git   # ← replace with the real URL
+cd design2garmentcode-impl
 ```
 
 ### 2. Create the Conda environment
