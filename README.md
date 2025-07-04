@@ -1,11 +1,12 @@
 
-# Design2GarmentCode: Programmatic Garment Patterns from Text and Images
+# Design2GarmentCode:  Turning Design Concepts to Tangible Garments Through Program Synthesis
+
 
 [arXiv](https://arxiv.org/abs/2412.08603) | [Project Page](https://style3d.github.io/design2garmentcode/)
 
 Feng Zhou, Ruiyang Liu, Chen Liu, Gaofeng He, Yong‑Lu Li, Xiaogang Jin, Huamin Wang. *CVPR 2025 .*
 
-![teaser](assets/img/neural_symbolic-teaser.png)
+![teaser](assets/img/neural_symbolic-pipeline.png)
  we propose a novel
 sewing pattern generation approach Design2GarmentCode
 based on Large Multimodal Models (LMMs), to generate parametric pattern-making programs from multi-modal
@@ -58,10 +59,39 @@ Follow the steps **in the given order**:
 ```bash
 python gui.py         
 ```
-- Input: free‑form prompt or an image/sketch  
+![GUI Demo](assets/img/gui.png)
+- Input: Free‑form prompt or an image/sketch  
 - Output: GarmentCode JSON, preview image, and (optionally) physics simulation
+
 ---
-## Model Inference
+
+### 1. Text-Guided Pattern Generation
+
+- Go to the PARSE DESIGN tab.
+- In the input box at the bottom ("Describe your design..."), type a natural language description of the garment.  
+  e.g., a T-shirt
+- Click SEND to generate patterns based on your description.
+
+---
+
+### 2. Image-Guided Pattern Generation
+
+- Click the upload icon inside the input box to upload a reference image or sketch.
+- Once the image is uploaded, click SEND to parse the design and generate corresponding patterns.
+
+---
+
+### 3. Modify Patterns in the GUI
+
+Once a pattern is generated, you can refine it directly inside the GUI:
+
+1. Focus the input box at the bottom.  
+2. Type `modify: <your-instruction>`  
+   - e.g., `modify: make sleeves shorter`  
+3. Press Enter – the system will regenerate the pattern accordingly.
+
+---
+## Batch Inference
 ### 1. Text Guided Generation
 
 Use `test_text_batch.py` to process a list of text descriptions from a JSON file.
@@ -95,12 +125,6 @@ python lmm_utils/test_picture_batch.py \
 - `--sim`: Enable or disable physical simulation output.
 
 ---
-### 3. Modify Patterns in the GUI
-Once a pattern is generated in GUI, you can refine them directly inside the GUI:
-
-1. Focus the **input box** at the bottom.  
-2. Type `modify: <your-instruction>` .  
-3. Press **Enter** – the system will regenerate the pattern to reflect your changes.
 
 
 ## Get 3D Garment Patterns
