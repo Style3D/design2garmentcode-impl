@@ -54,7 +54,7 @@ Follow the steps **in the given order**:
 #### 2. **Set up the parameter projector**:  
 - Download the base model [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct/tree/main) and place the modal to `lmm_utils/Qwen/Qwen2-VL-2B-Instruct/`.
 
-- Download the fine-tuned weights file [model.pth](lmm_utils/Qwen/qwen2vl_lora_mlp/model.pth), and place it in `lmm_utils/Qwen/qwen2vl_lora_mlp/`.
+- Download the fine-tuned weights file from [Google Drive](https://drive.google.com/file/d/1CL7OLUq6fYcwoDuLRkBxtKNxJ0_G73U-/view?usp=sharing), and place it in `lmm_utils/Qwen/qwen2vl_lora_mlp/`.
 ---
 
 ## Testing with GUI
