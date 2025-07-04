@@ -44,20 +44,17 @@ If you need local cloth simulation and 3‑D visualization, follow the installat
 `Design2GarmentCode` communicates with large multimodal models.  
 Follow the steps **in the given order**:
 
-1. **Provide API credentials**  
-   - **Environment variable (recommended)** – defaults to *ChatGPT‑4o*  
+#### 1. **Provide API credentials for MMUA**  
+- **Environment variable (recommended)** – defaults to *ChatGPT‑4o*  
      ```bash
      export OPENAI_API_KEY="sk‑..."
      ```  
-   - **Edit `system.json`** (project root) – manually specify `api_key`, `base_url`, and `model` if you prefer a file‑based approach.
-2. **Download the required models**:  
-   - First, download the base model [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct/tree/main).  
-     Place the entire folder at:  
-     `lmm_utils/Qwen/Qwen2-VL-2B-Instruct/`
+- **Edit `system.json`** (project root) – manually specify `api_key`, `base_url`, and `model` if you prefer a file‑based approach.
 
-   - Next, download the fine-tuned weights file [model.pth](lmm_utils/Qwen/qwen2vl_lora_mlp/model.pth),  
-     and place it in:  
-     `lmm_utils/Qwen/qwen2vl_lora_mlp/`
+#### 2. **Set up the parameter projector**:  
+- Download the base model [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct/tree/main) and place the modal to `lmm_utils/Qwen/Qwen2-VL-2B-Instruct/`.
+
+- Download the fine-tuned weights file [model.pth](lmm_utils/Qwen/qwen2vl_lora_mlp/model.pth), and place it in `lmm_utils/Qwen/qwen2vl_lora_mlp/`.
 ---
 
 ## Testing with GUI
