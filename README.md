@@ -22,7 +22,7 @@ Official implementation for Design2GarmentCode, a motility-agnostic sewing patte
 ## Installation
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/Style3D/design2garmentcode-impl.git   # ← replace with the real URL
+git clone https://github.com/Style3D/design2garmentcode-impl.git
 cd design2garmentcode-impl
 ```
 
