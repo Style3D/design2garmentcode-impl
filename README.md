@@ -1,16 +1,23 @@
 
-# Design2GarmentCode: Programmatic Garment Patterns from Text and Images
+# Design2GarmentCode: Turning Design Concepts to Tangible Garments Through Program Synthesis
 
-[arXiv](https://arxiv.org/abs/2412.08603) | [Project Page](https://style3d.github.io/design2garmentcode/)
+[![arXiv](https://img.shields.io/badge/📃-arXiv%20-red.svg)](https://arxiv.org/abs/2412.08603)
+[![webpage](https://img.shields.io/badge/🌐-Website%20-blue.svg)](https://style3d.github.io/design2garmentcode/) 
+[![Youtube](https://img.shields.io/badge/📽️-Video%20-orchid.svg)](https://www.youtube.com/xxx)
 
-Feng Zhou, Ruiyang Liu, Chen Liu, Gaofeng He, Yong‑Lu Li, Xiaogang Jin, Huamin Wang. *CVPR 2025 .*
+<span class="author-block"><a href="">Feng Zhou</a>,&nbsp;</span>
+<span class="author-block"><a href="https://walnut-ree.github.io/">Ruiyang Liu</a>,&nbsp;</span>
+<span class="author-block"><a href="">Chen Liu</a>,&nbsp;</span>
+<span class="author-block"><a href="">Gaofeng He</a>,&nbsp;</span>
+<span class="author-block"><a href="https://dirtyharrylyl.github.io/">Yong-Lu Li</a>,&nbsp;</span>
+<span class="author-block"><a href="http://www.cad.zju.edu.cn/home/jin/">Xiaogang Jin</a>,&nbsp;</span>
+<span class="author-block"><a href="https://wanghmin.github.io/">Huamin Wang</a></span>
 
-![teaser](assets/img/neural_symbolic-teaser.png)
- we propose a novel
-sewing pattern generation approach Design2GarmentCode
-based on Large Multimodal Models (LMMs), to generate parametric pattern-making programs from multi-modal
-design concepts
----
+<p align="center">
+  <img src="assets/img/neural_symbolic-pipeline.png">
+</p>
+Official implementation for Design2GarmentCode, a motility-agnostic sewing pattern generation framework that leverages fine-tuned Large Multimodal Models to generate parametric pattern-making programs from multi-modal design concepts.
+
 
 ## Installation
 ### 1. Clone the repository
@@ -53,15 +60,20 @@ Follow the steps **in the given order**:
      `lmm_utils/Qwen/qwen2vl_lora_mlp/`
 ---
 
-## Quick GUI Demo
+## Testing with GUI
 
-```bash
-python gui.py         
-```
-- Input: free‑form prompt or an image/sketch  
-- Output: GarmentCode JSON, preview image, and (optionally) physics simulation
+Setting up the GUI with `python gui.py` where you will see the following interface (modified from GarmentCode)
+
+<p align="center">
+  <img src="GUI-IMAGE-HERE">
+</p>
+
+Switching to the `Parse Design` tab, and input your design input, either text description, photograph or sketch, to the chatbox. The generated sewing pattern will appear on the right side after parsing.
+
+Once a pattern is generated, you can modify the result by typing `modify: <your-instruction>` in the chatbox.
+
 ---
-## Model Inference
+## Batch Inference
 ### 1. Text Guided Generation
 
 Use `test_text_batch.py` to process a list of text descriptions from a JSON file.
@@ -95,25 +107,21 @@ python lmm_utils/test_picture_batch.py \
 - `--sim`: Enable or disable physical simulation output.
 
 ---
-### 3. Modify Patterns in the GUI
-Once a pattern is generated in GUI, you can refine them directly inside the GUI:
 
-1. Focus the **input box** at the bottom.  
-2. Type `modify: <your-instruction>` .  
-3. Press **Enter** – the system will regenerate the pattern to reflect your changes.
-
-
-## Get 3D Garment Patterns
+## Simulate 3D Garment
 ### 1. Generate from a pattern.json
-After generating the pattern data, you can simulate the corresponding 3D output directly from the pattern's JSON file.
+After generating the pattern data, you can simulate the corresponding 3D output directly from the pattern's JSON file with
 ```bash
 python test_garment_sim.py --pattern_spec $INPUT_JSON 
 ```
-### 2. Generate from gui
-You can also run the simulation directly on the GUI to obtain 3D data.
-```bash
-python gui.py 
-```
+Or run the simulation directly in the `3D View` GUI tab.
+
+<p align="center">
+  <img src="3D Simulation Result.">
+</p>
+
+We also support integration 
+
 ### Citation
 ```bash
 If you find this work useful, please cite:
@@ -122,7 +130,7 @@ If you find this work useful, please cite:
 @article{zhou2024design2garmentcode,
   title={Design2GarmentCode: Turning Design Concepts to Tangible Garments Through Program Synthesis},
   author={Zhou, Feng and Liu, Ruiyang and Liu, Chen and He, Gaofeng and Li, Yong-Lu and Jin, Xiaogang and Wang, Huamin},
-  journal={arXiv preprint arXiv:2412.08603},
-  year={2024}
+  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+  year={2025}
 }
 ```
