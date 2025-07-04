@@ -14,7 +14,7 @@
 <span class="author-block"><a href="https://wanghmin.github.io/">Huamin Wang</a></span>
 
 <p align="center">
-  <img src="assets/img/neural_symbolic-pipeline.png">
+  <img src="https://github.com/Style3D/design2garmentcode-impl/raw/main/assets/img/neural_symbolic-pipeline.png">
 </p>
 Official implementation for Design2GarmentCode, a motility-agnostic sewing pattern generation framework that leverages fine-tuned Large Multimodal Models to generate parametric pattern-making programs from multi-modal design concepts.
 
@@ -65,10 +65,10 @@ Follow the steps **in the given order**:
 Setting up the GUI with `python gui.py` where you will see the following interface (modified from GarmentCode)
 
 <p align="center">
-  <img src="GUI-IMAGE-HERE">
+  <img src="https://github.com/Style3D/design2garmentcode-impl/raw/main/assets/img/gui_example.png">
 </p>
 
-Switching to the `Parse Design` tab, and input your design input, either text description, photograph or sketch, to the chatbox. The generated sewing pattern will appear on the right side after parsing.
+Switching to the `PARSE DESIGN` tab, and input your design input, either text description, photograph or sketch, to the chatbox. The generated sewing pattern will appear on the right side after parsing.
 
 Once a pattern is generated, you can modify the result by typing `modify: <your-instruction>` in the chatbox.
 
@@ -115,12 +115,6 @@ After generating the pattern data, you can simulate the corresponding 3D output 
 python test_garment_sim.py --pattern_spec $INPUT_JSON 
 ```
 Or run the simulation directly in the `3D View` GUI tab.
-
-<p align="center">
-  <img src="3D Simulation Result.">
-</p>
-
-We also support integration 
 
 ### Citation
 ```bash
