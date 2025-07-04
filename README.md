@@ -146,7 +146,7 @@ If you find this work useful, please cite:
 @article{zhou2024design2garmentcode,
   title={Design2GarmentCode: Turning Design Concepts to Tangible Garments Through Program Synthesis},
   author={Zhou, Feng and Liu, Ruiyang and Liu, Chen and He, Gaofeng and Li, Yong-Lu and Jin, Xiaogang and Wang, Huamin},
-  journal={arXiv preprint arXiv:2412.08603},
-  year={2024}
+  journal={Computer Vision and Pattern Recognition (CVPR)},
+  year={2025}
 }
 ```
