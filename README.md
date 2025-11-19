@@ -114,7 +114,6 @@ python test_garment_sim.py --pattern_spec $INPUT_JSON
 Or run the simulation directly in the `3D View` GUI tab.
 
 ### Citation
-```bash
 If you find this work useful, please cite:
 
 ```bibtex
