@@ -117,10 +117,11 @@ Or run the simulation directly in the `3D View` GUI tab.
 If you find this work useful, please cite:
 
 ```bibtex
-@article{zhou2024design2garmentcode,
+@inproceedings{zhou2025design2garmentcode,
   title={Design2GarmentCode: Turning Design Concepts to Tangible Garments Through Program Synthesis},
   author={Zhou, Feng and Liu, Ruiyang and Liu, Chen and He, Gaofeng and Li, Yong-Lu and Jin, Xiaogang and Wang, Huamin},
   booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+  pages={23712--23722},
   year={2025}
 }
 ```
